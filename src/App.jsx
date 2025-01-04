@@ -7,13 +7,18 @@ import SearchNotes from './Pages/SearchNotes'
 
 
  const App = () => {
-  const [notes, setNotes] = useState(JSON.parse(localStorage.getItem('notes')) || []);
-  const [showdelete, setShowDelete] = useState(false);
-  useEffect(() => {
-    localStorage.setItem('notes',JSON.stringify(notes))
-  }, [notes]);
+  // const [notes, setNotes] = useState(JSON.parse(localStorage.getItem('notes')) || []);
+  const [notes, setNotes] = useState([]);
 
-  
+  const [showdelete, setShowDelete] = useState(false);
+
+  // useEffect(() => {
+  //   localStorage.setItem('notes',JSON.stringify(notes))
+  // }, [notes]);
+
+  const getNotes = async() => {
+    
+  }
   return (
     <div>
       <BrowserRouter>

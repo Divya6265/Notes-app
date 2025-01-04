@@ -25,15 +25,18 @@ function EditNotes({ notes, setNotes, showdelete, setShowDelete }) {
 
   const handleSubmit = (e) => {
     e.preventDefault()
+    const contentHtml = document.getElementById("content").innerHTML;
+    setContent(contentHtml);
+    console.log(contentHtml)
     if (title || content) {
       const newnote = { ...note, title, content, date }
 
       const newNotes = notes.map(item => {
-        if (item.id == id) {
-          item = newnote
+        if (item.id.toString() === id.toString()) { 
+          return newnote;
         }
-        return item
-      })
+        return item;
+      });
 
       setNotes(newNotes);
       navigate("/");
@@ -46,7 +49,7 @@ function EditNotes({ notes, setNotes, showdelete, setShowDelete }) {
       <form className='note__form' action="" onSubmit={handleSubmit}>
         <button className='btn' >  <Link to={`/`}> <IoChevronBack className="backicon" />   </Link> </button>
         <input type="text" name="title" id='title' value={title} onChange={(e) => setTitle(e.target.value)} autoComplete="off" className="title" placeholder='Title' />
-        <div className='content' contentEditable="true" onInput={(e) => setContent(e.currentTarget.textContent)} dangerouslySetInnerHTML={{ __html: defaultValue.current }} autoFocus suppressContentEditableWarning={true} >
+        <div className='content' id="content" contentEditable="true" onInput={(e) => setContent(e.currentTarget.textContent)} dangerouslySetInnerHTML={{ __html: defaultValue.current }} autoFocus suppressContentEditableWarning={true} >
 
         </div>
         {(title.length > 0) || (content.length > 0) ? (

@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import { TiTick } from "react-icons/ti";
 import { v4 as uuid } from 'uuid';
 import { useCreateDateDetails } from "../components/useCreateDate";
@@ -6,7 +6,7 @@ import { IoChevronBack } from "react-icons/io5";
 import { Link, useNavigate } from 'react-router-dom';
 import Footer from "../components/Footer"
 
-function CreateNotes({showdelete, setShowDelete }) {
+function CreateNotes({setNotes, showdelete, setShowDelete }) {
  
   useEffect(()=>{
     setShowDelete(false);  
@@ -28,18 +28,6 @@ function CreateNotes({showdelete, setShowDelete }) {
   }
 
 
-  const uploaadImage = (e) => {
-    const file = e.target.files[0];
-    if (file) {
-      const reader = new FileReader();
-      reader.onload = (e) => {
-        const img = document.createElement('img');
-        img.src = e.target.result;
-        document.getElementById('content').innerHTML += img.outerHTML;
-      }
-      reader.readAsDataURL(file);
-    }
-  }
 
   return (
     <>
@@ -54,7 +42,6 @@ function CreateNotes({showdelete, setShowDelete }) {
             <TiTick />
           </button>
         ) : null}
-        <input type="file" onChange={uploaadImage} name="imgUpload" id="imgUpload" />
       </form>
       <Footer showdelete = {showdelete} setShowDelete = {setShowDelete}/>
 

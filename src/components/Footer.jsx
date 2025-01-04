@@ -5,8 +5,23 @@ import { RiDeleteBinLine } from "react-icons/ri";
 import {useNavigate, useParams} from 'react-router-dom'
 
 function footer({showdelete, notes, id, setNotes}) {
+
+  // const uploadImage = (e) => {
+  //   document.getElementById('imgUpload').click()
+  //   const file = e.target.files[0];
+  //   if (file) {
+  //     const reader = new FileReader();
+  //     reader.onload = (e) => {
+  //       const img = document.createElement('img');
+  //       img.src = e.target.result;
+  //       document.getElementById('content').innerHTML += img.outerHTML;
+  //     }
+  //     reader.readAsDataURL(file);
+  //     e.target.value = "";
+  //   }
+  // }
+  
   const uploadImage = (e) => {
-    document.getElementById('imgUpload').click()
     const file = e.target.files[0];
     if (file) {
       const reader = new FileReader();
@@ -16,7 +31,6 @@ function footer({showdelete, notes, id, setNotes}) {
         document.getElementById('content').innerHTML += img.outerHTML;
       }
       reader.readAsDataURL(file);
-      e.target.value = "";
     }
   }
 
