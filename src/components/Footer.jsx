@@ -1,9 +1,8 @@
-import React from 'react'
+import React, { createElement } from 'react'
 import { IoFileTrayOutline } from "react-icons/io5";
 import { MdOutlineAudioFile } from "react-icons/md";
 import { RiDeleteBinLine } from "react-icons/ri";
 import {useNavigate, useParams} from 'react-router-dom'
-
 function footer({showdelete, notes, id, setNotes}) {
 
   // const uploadImage = (e) => {
@@ -21,7 +20,7 @@ function footer({showdelete, notes, id, setNotes}) {
   //   }
   // }
   
-  const uploadImage = (e) => {
+  const uploadImage = async (e) => {
     const file = e.target.files[0];
     if (file) {
       const reader = new FileReader();
@@ -31,6 +30,7 @@ function footer({showdelete, notes, id, setNotes}) {
         document.getElementById('content').innerHTML += img.outerHTML;
       }
       reader.readAsDataURL(file);
+      
     }
   }
 
@@ -61,37 +61,6 @@ function footer({showdelete, notes, id, setNotes}) {
 }
 
 
-
-  // const insertCheckBox = () => {
-  //   const content = document.getElementById("content")
-  //   const checkbox = document.createElement('input');
-  //   checkbox.type = "checkbox";
-  //   let seletion = window.getSelection();
-  //   console.log("seletuon" + seletion);
-  //   // let seletedText = seletion.toString()
-  //   let range = seletion.getRangeAt(0);
-  //   range.insertNode(checkbox);
-
-  // }
-
-  // const insertCheckBox = () => {
-  //   const content = document.getElementById("content");
-  //   const items = Array.from(content.children); // Get all child div elements
-
-  //   // Loop through each child item
-  //   items.forEach((item) => {
-  //     // Check if a checkbox already exists in the item
-  //     if (!item.querySelector("input[type='checkbox']")) {
-  //       // Create a checkbox
-  //       const checkbox = document.createElement("input");
-  //       checkbox.type = "checkbox";
-  //       checkbox.style.marginRight = "5px"; // Add some space between the checkbox and text
-
-  //       // Insert the checkbox at the beginning of the item
-  //       item.prepend(checkbox);
-  //     }
-  //   });
-  // };
 
 
 
