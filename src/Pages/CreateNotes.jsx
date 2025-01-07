@@ -22,6 +22,7 @@ function CreateNotes({getNotes, showdelete, setShowDelete }) {
   const handleSumbit = async (e) => {
     e.preventDefault()
     const contentHtml = document.getElementById("content").innerHTML;
+    console.log("contenthtml", contentHtml);
     setContent(contentHtml);
     if (title || content) {
       // const note = { id: uuid(), title: title, content: content, date: useCreateDateDetails() }
@@ -32,7 +33,7 @@ function CreateNotes({getNotes, showdelete, setShowDelete }) {
       try {
        const docRef =  await addDoc(notesRef,{
           title : title,
-          content : content,
+          content : contentHtml,
           date : useCreateDateDetails()
         })
         // console.log("Note added into db");

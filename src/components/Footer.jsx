@@ -30,7 +30,6 @@ function footer({showdelete, notes, id, setNotes}) {
         document.getElementById('content').innerHTML += img.outerHTML;
       }
       reader.readAsDataURL(file);
-      
     }
   }
 

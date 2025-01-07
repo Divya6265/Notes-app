@@ -30,7 +30,6 @@ function EditNotes({ getNotes, showdelete, setShowDelete }) {
       const docRef = doc(notesRef, id);
       const noteSnapshot = await getDoc(docRef);
       let note = noteSnapshot.data()
-      console.log( "note edit" + note + "  " + note.title + "  " + note.content)
       setNote(note);
       setTitle(note.title  || " ")
       setContent(note.content || " ")
@@ -48,7 +47,7 @@ function EditNotes({ getNotes, showdelete, setShowDelete }) {
     e.preventDefault()
     const contentHtml = document.getElementById("content").innerHTML;
     setContent(contentHtml);
-    console.log(contentHtml)
+    // console.log(contentHtml)
     if (title || content) {
       // const newnote = { ...note, title, content, date }
       // const newNotes = notes.map(item => {
@@ -60,7 +59,7 @@ function EditNotes({ getNotes, showdelete, setShowDelete }) {
       const note = doc(notesRef, id);
       await updateDoc(note, {
         title: title,
-        content: content,
+        content: contentHtml,
         date: useCreateDateDetails()
       })
       getNotes();
