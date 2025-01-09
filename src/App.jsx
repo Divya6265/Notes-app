@@ -6,6 +6,7 @@ import EditNotes from './Pages/EditNotes'
 import SearchNotes from './Pages/SearchNotes'
 import db from "./firebase_config"
 import { getDocs, collection } from 'firebase/firestore'
+import CreateFolder from './Pages/CreateFolder'
 
 const App = () => {
   // const [notes, setNotes] = useState(JSON.parse(localStorage.getItem('notes')) || []);
