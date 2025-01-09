@@ -1,27 +1,29 @@
 /* main page notes header */
-*{
-    font-family:sans-serif;
+* {
+    font-family: sans-serif;
     background-color: #1b1a1a;
     color: #fff;
     margin: 0;
     padding: 0;
 }
 
-.btn{
+.btn {
     border: none;
     font-size: 30px;
 }
 
-.notes__header{
+.notes__header {
     margin: 25px auto;
     padding: 0 15px;
     display: flex;
     justify-content: space-between;
-    h1{
+
+    h1 {
         font-size: 38px;
     }
+
     //  search icon
-    .searchicon{
+    .searchicon {
         margin: 10px 10px auto auto;
         font-size: 30px;
     }
@@ -35,29 +37,34 @@
     border-radius: 10px;
     display: block;
     text-decoration: none;
-    margin:15px 10px;
+    margin: 15px 10px;
     padding: 15px;
-    *{
+
+    * {
         background-color: #343434;
     }
+
     .note__title {
         font-size: 19px;
     }
-    .note__title::first-letter{
+
+    .note__title::first-letter {
         text-transform: capitalize;
     }
-    .note__content{
+
+    .note__content {
         font-size: 15px;
         letter-spacing: 1px;
     }
-    .note__date{
+
+    .note__date {
         padding-top: 6px;
-        font-size: 12px;    
+        font-size: 12px;
     }
 }
 
 // notes add or create notes icons
-.add_btn{
+.add_btn {
     background-color: lightblue;
     font-size: 30px;
     display: block;
@@ -69,21 +76,23 @@
 }
 
 // search bar header
-.search__notes{
+.search__notes {
     display: flex;
     padding: 20px 10px;
-    border-bottom: 1px solid rgba(255,255,255,.25);
+    border-bottom: 1px solid rgba(255, 255, 255, .25);
 
-    #search{
+    #search {
         margin: -9px 0 0 10px;
         border: none;
         width: 80%;
         color: #fff;
         font-size: 18px;
     }
-    #search:focus{
+
+    #search:focus {
         outline: none;
     }
+
     // .remove__search{
 
     // }
@@ -92,24 +101,26 @@
 
 
 // edit note or display note content
-.note__form{
+.note__form {
     padding: 20px;
     overflow: hidden;
-    .title{
+
+    .title {
         letter-spacing: 1.5px;
         margin-top: 40px;
         border: none;
-        border-bottom: 1px solid rgba(255,255,255,.25);
+        border-bottom: 1px solid rgba(255, 255, 255, .25);
         font-size: 25px;
         width: 90%;
         padding: 15px 10px;
     }
-    .title:focus{
+
+    .title:focus {
         outline: none;
     }
-   
 
-    .content{
+
+    .content {
         overflow: scroll;
         scroll-margin: 0;
         padding: 20px 10px;
@@ -118,40 +129,48 @@
         font-size: 18px;
         line-height: 30px;
     }
-    .content::-webkit-scrollbar{
+
+    .content::-webkit-scrollbar {
         display: none;
     }
-    .content:focus{
+
+    .content:focus {
         outline: none;
     }
-    .save__note{
+
+    .save__note {
         position: absolute;
         top: 20px;
         right: 25px;
     }
-    
-    .backicon{
+
+    .backicon {
         position: absolute;
         top: 20px;
         left: 20px;
     }
-    .tick_save{
-        color: rgba(255,255,255,.25);
+
+    .tick_save {
+        color: rgba(255, 255, 255, .25);
         font-size: 28px;
     }
-    
+
 }
-img{
+
+img {
     width: 400px;
 }
-audio{
+
+audio {
     display: inline;
 }
-.delete__btn{
+
+.delete__btn {
     display: flex;
     margin-left: 10px;
 }
-.footer__controls{
+
+.footer__controls {
     position: absolute;
     bottom: 0;
     left: 0;
@@ -161,21 +180,100 @@ audio{
     gap: 4px;
     padding: 10px 25px;
 }
-input{
+
+input {
     margin-top: 5px;
 }
-input[type='file']{
+
+input[type='file'] {
     width: 80px;
     height: 50px;
     // z-index: 10;
     // visibility: hidden;
 }
 
-input[name='imgUpload']::before{
+input[name='imgUpload']::before {
     content: "Upload file     ";
 }
 
 
-input[name='audioUpload']::before{
+input[name='audioUpload']::before {
     content: "Upload audio ";
+}
+
+.folder__form {
+
+    display: flex;
+    justify-content: center;
+
+    * {
+        background-color: #343434;
+        border: none;
+    }
+
+    .box__content {
+        display: block;
+        position: relative;
+        padding: 30px;
+        width: 70%;
+        height: 140px;
+        border-radius: 10px;
+        line-height: 40px;
+
+        h3 {
+            font-weight: normal;
+            letter-spacing: 1px;
+        }
+
+        #foldername {
+            width: 90%;
+            user-select: text;
+            border-bottom: 2px solid lightblue;
+            font-size: 20px;
+        }
+
+        #foldername:focus {
+            outline: none;
+        }
+
+        .controlls {
+            position: absolute;
+            bottom: 30px;
+            text-align: right;
+            padding-right: 20px;
+            width: 75%;
+        }
+
+        .form__btn {
+            font-size: 18px;
+            color: lightblue;
+            font-weight: 700;
+            margin-left: 10%;
+        }
+    }
+}
+
+.folder__item {
+    text-decoration: none;
+
+    .folder__content {
+        border-radius: 10px;
+        margin: 15px 10px;
+        padding: 15px;
+        background-color: #343434;
+
+        .folder__title {
+            background-color: #343434;
+            font-size: 20px;
+        }
+
+        text-decoration: none;
+
+        .folder__date {
+            background-color: #343434;
+            font-size: 16px;
+            padding-top: 6px;
+        }
+    }
+
 }

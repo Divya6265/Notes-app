@@ -63,7 +63,7 @@ function EditNotes({ getNotes, showdelete, setShowDelete }) {
         date: useCreateDateDetails()
       })
       getNotes();
-      navigate("/");
+      // navigate("/");
     }
 
   }
@@ -71,7 +71,7 @@ function EditNotes({ getNotes, showdelete, setShowDelete }) {
   return (
     <>
       <form className='note__form' action="" onSubmit={handleSubmit}>
-        <button className='btn' >  <Link to={`/`}> <IoChevronBack className="backicon" />   </Link> </button>
+        <button className='btn' >  <Link to={`/edit-note/${id}`}> <IoChevronBack className="backicon" />   </Link> </button>
         <input type="text" name="title" id='title' value={title} onChange={(e) => setTitle(e.target.value)} autoComplete="off" className="title" placeholder='Title' />
         <div className='content' id="content" contentEditable="true" onInput={(e) => setContent(e.currentTarget.textContent)} dangerouslySetInnerHTML={{ __html: defaultValue.current }} autoFocus suppressContentEditableWarning={true} >
 

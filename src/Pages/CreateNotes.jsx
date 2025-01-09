@@ -3,13 +3,13 @@ import { TiTick } from "react-icons/ti";
 import { v4 as uuid } from 'uuid';
 import { useCreateDateDetails } from "../components/useCreateDate";
 import { IoChevronBack } from "react-icons/io5";
-import { Link, useNavigate } from 'react-router-dom';
+import { Link, useNavigate, useParams } from 'react-router-dom';
 import db from "../firebase_config"
-import { addDoc, collection } from 'firebase/firestore';
+import { addDoc, doc, collection } from 'firebase/firestore';
 import Footer from "../components/Footer"
 
 function CreateNotes({getNotes, showdelete, setShowDelete }) {
- 
+  const {id} = useParams();
   useEffect(()=>{
     setShowDelete(false);  
   }, setShowDelete );
@@ -28,13 +28,14 @@ function CreateNotes({getNotes, showdelete, setShowDelete }) {
       // const note = { id: uuid(), title: title, content: content, date: useCreateDateDetails() }
       // setNotes(prevNotes => [note, ...prevNotes])
       // navigate(`/edit-note/${note.id}`);
-
+      const folderRef = doc(db, `folders/${id}`);
       const notesRef = collection(db, "files");
       try {
        const docRef =  await addDoc(notesRef,{
           title : title,
           content : contentHtml,
-          date : useCreateDateDetails()
+          date : useCreateDateDetails(),
+          folder : folderRef
         })
         // console.log("Note added into db");
         getNotes();

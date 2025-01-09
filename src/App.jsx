@@ -6,11 +6,13 @@ import EditNotes from './Pages/EditNotes'
 import SearchNotes from './Pages/SearchNotes'
 import db from "./firebase_config"
 import { getDocs, collection } from 'firebase/firestore'
+import CreateFolder from './Pages/createFolder'
 
 const App = () => {
   // const [notes, setNotes] = useState(JSON.parse(localStorage.getItem('notes')) || []);
   const [notes, setNotes] = useState([]);
-
+  const [folders, setfolders] = useState([]);
+  
   const [showdelete, setShowDelete] = useState(false);
 
   // useEffect(() => {
@@ -26,15 +28,30 @@ const App = () => {
     }))
     setNotes(filteredData);
   }
+  const getFolders = async( ) => {
+    const folderRef = collection(db, "folders");
+    const querySanpshot = await getDocs(folderRef)
+    const filteredData = querySanpshot.docs.map((doc) => ({
+      id:doc.id,
+      ...doc.data()
+    }));
+    console.log(filteredData, "folder data .....");
+    setfolders(filteredData);
+  }
+
   useEffect(() => {
     getNotes();
   },[]);
+  useEffect(()=>{
+    getFolders();
+  },[])
   return (
     <div>
       <BrowserRouter>
         <Routes>
-           <Route  path='/' element={<Notes notes={notes}/>} />
-           <Route  path='/create-note' element={<CreateNotes getNotes = {getNotes} showdelete ={showdelete} setShowDelete={setShowDelete} /> } />
+           <Route  path='/' element={<CreateFolder folders={folders} getFolders={getFolders} />} />
+           <Route  path='/notes/:id' element={<Notes notes={notes} getFolders={getFolders}/>} />
+           <Route  path='/create-note/:id' element={<CreateNotes getNotes = {getNotes} showdelete ={showdelete} setShowDelete={setShowDelete} /> } />
            <Route  path='/edit-note/:id' element={<EditNotes getNotes={getNotes} showdelete ={showdelete} setShowDelete={setShowDelete} />} />
            <Route  path='/search-note' element={<SearchNotes notes= {notes} />} />
         </Routes>
