@@ -4,7 +4,6 @@ import { Link } from 'react-router-dom'
 function NoteItem({note}) {
   const date = note.date.split(" ");
   const text = note.content.replace(/<.*?>/g, '').replace(/&nbsp;/g, ' ');
-  // const text = note.content;
 
   return (
     <div className="note">
