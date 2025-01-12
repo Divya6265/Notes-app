@@ -15,16 +15,14 @@ function EditNotes({ getNotes, showdelete, setShowDelete }) {
   const [content, setContent] = useState("")
   let defaultValue = useRef("")
 
-  const navigate = useNavigate();
   const date = useCreateDateDetails();
 
   useEffect(() => {
     setShowDelete(true);
   }, [setShowDelete]);
 
-
+   // file id
   const { id } = useParams();
-  // const note = notes.find(item => item.id == id);
   const fetchNote = async () => {
     try {
       const docRef = doc(notesRef, id);
@@ -83,7 +81,7 @@ function EditNotes({ getNotes, showdelete, setShowDelete }) {
         ) : null}
 
       </form>
-      <Footer showdelete={showdelete} setShowDelete={setShowDelete} id={id} getNotes={getNotes} />
+      <Footer showdelete={showdelete} id={id} getNotes={getNotes} />
 
     </>
 

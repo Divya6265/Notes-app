@@ -1,25 +1,11 @@
-import React, { createElement } from 'react'
-import { IoFileTrayOutline } from "react-icons/io5";
-import { MdOutlineAudioFile } from "react-icons/md";
+import { collection , deleteDoc, doc } from 'firebase/firestore';
+import React  from 'react'
 import { RiDeleteBinLine } from "react-icons/ri";
-import {useNavigate, useParams} from 'react-router-dom'
-function footer({showdelete, notes, id, setNotes}) {
+import {useNavigate} from 'react-router-dom'
+import db from "../firebase_config"
 
-  // const uploadImage = (e) => {
-  //   document.getElementById('imgUpload').click()
-  //   const file = e.target.files[0];
-  //   if (file) {
-  //     const reader = new FileReader();
-  //     reader.onload = (e) => {
-  //       const img = document.createElement('img');
-  //       img.src = e.target.result;
-  //       document.getElementById('content').innerHTML += img.outerHTML;
-  //     }
-  //     reader.readAsDataURL(file);
-  //     e.target.value = "";
-  //   }
-  // }
-  
+function footer({showdelete, id, getNotes}) {
+
   const uploadImage = async (e) => {
     const file = e.target.files[0];
     if (file) {
@@ -54,8 +40,11 @@ function footer({showdelete, notes, id, setNotes}) {
   }
   const navigate = useNavigate();
   
-  const handleDelete = () => {
-    setNotes(notes.filter(note => note.id !== id))
+  const handleDelete = async () => {
+    const fileDbRef = collection(db, "files");
+    const docRef = doc(fileDbRef, id);
+    await deleteDoc(docRef);
+    getNotes();
     navigate("/");
 }
 

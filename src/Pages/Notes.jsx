@@ -47,7 +47,7 @@ function Notes({ notes, getFolders }) {
                 <div className="notes__container">
                     {(filteredNotes.length > 0) ? (
                         filteredNotes.map(note => (
-                            <NoteItem key={note.id} note={note} folderid = {id} />
+                            <NoteItem key={note.id} note={note} />
                         ))
                     ) : (
                         <p>No notes created yet</p>
