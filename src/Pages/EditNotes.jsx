@@ -61,7 +61,7 @@ function EditNotes({ getNotes, showdelete, setShowDelete }) {
         date: useCreateDateDetails()
       })
       getNotes();
-      // navigate("/");
+      navigate("/");
     }
 
   }

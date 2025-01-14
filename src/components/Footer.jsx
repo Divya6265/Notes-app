@@ -56,7 +56,7 @@ function footer({showdelete, id, getNotes}) {
     <div className='footer__controls'>
       <input type="file" onChange={uploadImage} name="imgUpload" id="imgUpload" accept="image/*" /> 
       <input type="file" onChange={uploadRecorde} name="audioUpload" id="audioUpload" accept="audio/*" /> 
-      {showdelete ? <button className="btn delete__btn" onClick={handleDelete}> <RiDeleteBinLine /> </button> : null}
+      {showdelete ? <button className="btn delete__btn" onClick={handleDelete}></button> : null}
    
     </div>
   )
