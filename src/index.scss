@@ -129,7 +129,10 @@
         height: 68vh;
         width: 90vw;
         font-size: 18px;
-        line-height: 30px;
+        line-height: 30px; 
+        img{
+            width: 70%;
+        }
     }
 
     .content::-webkit-scrollbar {
