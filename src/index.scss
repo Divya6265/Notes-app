@@ -7,6 +7,7 @@
     color: #fff;
     margin: 0;
     padding: 0;
+    box-sizing: border-box;
 }
 
 .btn {
@@ -106,7 +107,8 @@
 .note__form {
     padding: 20px;
     overflow: hidden;
-
+    width: 90vw;
+    height: 100vh;
     .title {
         letter-spacing: 1.5px;
         margin-top: 40px;
@@ -123,6 +125,7 @@
 
 
     .content {
+        position: relative;
         overflow: scroll;
         scroll-margin: 0;
         padding: 20px 10px;
@@ -131,7 +134,8 @@
         font-size: 18px;
         line-height: 30px; 
         img{
-            width: 70%;
+            width: 50%;
+            object-fit: cover;
         }
     }
 
@@ -210,13 +214,18 @@
 
 
 }
+.form__wrapper{
+    position: absolute;
+    top: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, .55);   
+    z-index: 990;
+}
 
 .folder__form {
-
-    display: flex;
-    justify-content: center;
-
-    * {
+    
+   .form__wrapper  * {
         background-color: #343434;
         border: none;
     }
@@ -225,11 +234,13 @@
         display: block;
         position: relative;
         padding: 30px;
-        width: 70%;
-        height: 140px;
+        width: 500px;
+        height: 200px;
+        margin: auto auto;
+        top: 30%;
         border-radius: 10px;
         line-height: 40px;
-
+        z-index: 999;
         h3 {
             font-weight: normal;
             letter-spacing: 1px;
@@ -265,13 +276,15 @@
 
 .folder__item {
     text-decoration: none;
-
     .folder__content {
+        display: flex;
+        justify-content:space-between;
         border-radius: 10px;
         margin: 15px 10px;
         padding: 15px;
         background-color: #343434;
 
+       
         .folder__title {
             background-color: #343434;
             font-size: 20px;
@@ -284,6 +297,27 @@
             font-size: 16px;
             padding-top: 6px;
         }
+        .delete__icon{
+            background-color:#343434;
+
+            button{
+                
+                border: none;
+                margin-top:15px;
+            }
+        }
     }
 
+
+}
+
+@media screen and (max-width : 1023px) {
+    .folder__form .box__content{
+        width: 100%;
+        
+    }
+    .form__wrapper{
+        padding: 20px;
+    }
+    
 }
