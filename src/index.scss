@@ -69,11 +69,13 @@
 // notes add or create notes icons
 .add_btn {
     background-color: lightblue;
-    font-size: 30px;
+    width: 60px;
+    height: 60px;
+    font-size: 50px;
     display: block;
-    padding: 15px;
+    padding: 10px;
     position: absolute;
-    bottom: 15px;
+    bottom: 55px;
     right: 15px;
     border-radius: 50%;
 }
@@ -274,6 +276,10 @@
     }
 }
 
+.folder__item  *{
+    background-color: #343434;
+}
+
 .folder__item {
     text-decoration: none;
     .folder__content {
@@ -282,29 +288,23 @@
         border-radius: 10px;
         margin: 15px 10px;
         padding: 15px;
-        background-color: #343434;
 
        
         .folder__title {
-            background-color: #343434;
             font-size: 20px;
         }
 
         text-decoration: none;
 
         .folder__date {
-            background-color: #343434;
             font-size: 16px;
             padding-top: 6px;
         }
+        
         .delete__icon{
-            background-color:#343434;
-
-            button{
-                
-                border: none;
-                margin-top:15px;
-            }
+            z-index: 999;
+            font-size: 30px;
+            margin: 5px 5px;
         }
     }
 
