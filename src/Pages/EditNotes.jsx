@@ -16,7 +16,7 @@ function EditNotes({ getNotes, showdelete, setShowDelete }) {
   let defaultValue = useRef("")
 
   const date = useCreateDateDetails();
-
+   const navigate = useNavigate();
   useEffect(() => {
     setShowDelete(true);
   }, [setShowDelete]);
